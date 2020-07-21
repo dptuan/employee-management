@@ -1,0 +1,174 @@
+{
+	"info": {
+		"_postman_id": "5ad2be72-87b4-4eb7-a262-969c77cd4df1",
+		"name": "Saled-Employee",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get employees",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/employees?limit=20&offset=1&sort=%2bname&search=kadin",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"employees"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "20",
+							"description": "limit element per page"
+						},
+						{
+							"key": "offset",
+							"value": "1",
+							"description": "current page"
+						},
+						{
+							"key": "sort",
+							"value": "%2bname",
+							"description": "eg: +name, -name, +login, -login"
+						},
+						{
+							"key": "search",
+							"value": "kadin",
+							"description": "search in fields name, login"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Show an employee",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{url}}/v1/employees/{{employee_uuid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"employees",
+						"{{employee_uuid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update an employee",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "XMLHttpRequest",
+						"value": "XMLHttpRequest"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"login\": \"login.field\",\n    \"name\": \"name.field\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/employees/{{employee_uuid}}",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"employees",
+						"{{employee_uuid}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create employees",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Connection",
+						"value": "keep-alive"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json, text/plain, */*"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"employees\": [\n        {\n            \"login\": \"user.login.1\",\n            \"name\": \"user.name.1\"\n        },\n        {\n            \"login\": \"user.login.2\",\n            \"name\": \"user.name.2\"\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/v1/employees",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"v1",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

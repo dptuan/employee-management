@@ -10,12 +10,6 @@ Copy `.env` from `.env.example` and set local parameters
 ```bash
 cp .env.example .env
 ```
-#### Create `.env.testing` file
-Copy `.env` from `.env.example.testing` and set local parameters
-```bash
-cp .env.example.testing .env.testing
-```
-
 #### Database Set up
 - In your local machine create a empty database `employee_management`
 -  Edit the `.env` values:
@@ -26,6 +20,12 @@ DB_PORT=3306
 DB_DATABASE=employee_management
 DB_USERNAME=your_db_username
 DB_PASSWORD=your_db_password
+```
+
+#### Create `.env.testing` file
+Copy `.env` from `.env.example.testing` and set local parameters
+```bash
+cp .env.example.testing .env.testing
 ```
 
 #### Database Testing Set up
@@ -40,6 +40,7 @@ DB_USERNAME=your_db_username
 DB_PASSWORD=your_db_password
 ```
 
+#### Run application
 - run the command to migrate and seed data:
 ```bash
 php artisan migrate --seed
@@ -48,6 +49,8 @@ php artisan migrate --seed
 ```bash
 php artisan serve
 ```
+- [# Postman collection](./docs/Saled-Employee.postman_collection.json)
+
 - run test:
 ```bash
 composer test
@@ -58,5 +61,3 @@ composer test
 Class Name | Test Name      | Coverage 
 ---------- | -------------- |  --------------   
 EmployeeController      | EmployeeControllerTest      | 100%
-
-- [# Postman collection](./docs/Saled-Employee.postman_collection.json)
